@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="com.rosterbot.ical.subscriber" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>
+        iCalSubscriber
+    </name>
+    <js-module name="iCalSubscriber" src="www/iCalSubscriber.js">
+        <clobbers target="iCalSubscriber">
+        </clobbers>
+    </js-module>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="iCalSubscriber">
+                <param name="ios-package" value="RBICalSubscriber">
+                </param>
+                <param name="onload" value="true">
+                </param>
+            </feature>
+        </config-file>
+        <header-file src="src/ios/RBICalSubscriber.h">
+        </header-file>
+        <source-file src="src/ios/RBICalSubscriber.m">
+        </source-file>
+    </platform>
+
+
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="iCalSubscriber">
+                <param name="android-package" value="com.rosterbot.cordova.plugin.RBICalSubscriber">
+                </param>
+            </feature>
+        </config-file>
+        <config-file parent="/manifest" target="AndroidManifest.xml">
+            <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+        </config-file>
+
+        <framework src="org.mnode.ical4j:ical4j:1.0.7">
+        </framework>
+        <framework src="com.google.api-client:google-api-client-gson:1.22.0">
+        </framework>
+        <framework src="com.google.api-client:google-api-client-android:1.22.0">
+        </framework>
+        <framework src="com.google.apis:google-api-services-calendar:v3-rev243-1.22.0">
+        </framework>
+        <framework src="com.google.android.gms:play-services-auth:10.2.1">
+        </framework>
+        
+        <source-file src="src/android/RBICalSubscriber.java" target-dir="src/com/rosterbot/cordova/plugin">
+        </source-file>
+    </platform>
+</plugin>
