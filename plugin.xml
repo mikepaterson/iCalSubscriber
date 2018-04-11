@@ -44,6 +44,7 @@
         </framework>
         <framework src="com.google.android.gms:play-services-auth:10.2.1">
         </framework>
+        <framework src="pub.devrel:easypermissions:1.2.0"> </framework>
         
         <source-file src="src/android/RBICalSubscriber.java" target-dir="src/com/rosterbot/cordova/plugin">
         </source-file>
